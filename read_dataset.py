@@ -1,4 +1,5 @@
-<<<<<<< HEAD
+IMAGE_SIZE = 32
+BATCH_SIZE = 128
 import tensorflow as tf
 import numpy as np
 import random

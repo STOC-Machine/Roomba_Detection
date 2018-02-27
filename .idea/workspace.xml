@@ -2,22 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="01fc5cd4-4384-4402-8c30-4fe2ff8d5158" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-1.data-00000-of-00002" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-1.data-00001-of-00002" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-1.index" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-1.meta" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cnn_files/checkpoint" afterPath="$PROJECT_DIR$/cnn_files/checkpoint" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cnn_files/graph.pbtxt" afterPath="$PROJECT_DIR$/cnn_files/graph.pbtxt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/find_roomba.py" afterPath="$PROJECT_DIR$/find_roomba.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/image_grabber.py" afterPath="$PROJECT_DIR$/image_grabber.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/makeDatabase.py" afterPath="$PROJECT_DIR$/makeDatabase.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/make_dataset.py" afterPath="$PROJECT_DIR$/make_dataset.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/read_dataset.py" afterPath="$PROJECT_DIR$/read_dataset.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/roomba.py" afterPath="$PROJECT_DIR$/roomba.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/roomba_eval.py" afterPath="$PROJECT_DIR$/roomba_eval.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/roomba_input.py" afterPath="$PROJECT_DIR$/roomba_input.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/roomba_train.py" afterPath="$PROJECT_DIR$/roomba_train.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -56,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="roomba_eval.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="roomba_eval.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/roomba_eval.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="4">
-              <caret line="90" column="0" lean-forward="true" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+              <caret line="90" column="0" lean-forward="false" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -78,11 +64,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="read_dataset.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="read_dataset.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/read_dataset.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="71" column="0" lean-forward="false" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+            <state relative-caret-position="-1096">
+              <caret line="15" column="62" lean-forward="false" selection-start-line="15" selection-start-column="62" selection-end-line="15" selection-end-column="62" />
               <folding />
             </state>
           </provider>
@@ -369,14 +355,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/read_dataset.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="71" column="0" lean-forward="false" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/roomba_input.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="354">
@@ -390,10 +368,18 @@
     <entry file="file://$PROJECT_DIR$/roomba_eval.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4">
-          <caret line="90" column="0" lean-forward="true" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+          <caret line="90" column="0" lean-forward="false" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/read_dataset.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1096">
+          <caret line="15" column="62" lean-forward="false" selection-start-line="15" selection-start-column="62" selection-end-line="15" selection-end-column="62" />
+          <folding />
         </state>
       </provider>
     </entry>
