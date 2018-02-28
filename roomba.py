@@ -16,12 +16,9 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-import os
 import re
-import sys
-import tarfile
 
-from six.moves import urllib
+
 import tensorflow as tf
 
 import roomba_input
@@ -125,7 +122,7 @@ def inputs(eval_data):
 	Raises:
 		ValueError: If no data_dir
 	"""
-	if not FLAGS.dat_dir:
+	if not FLAGS.data_dir:
 		raise ValueError('Please supply a data_dir')
 	images, labels = roomba_input.inputs(eval_data=eval_data,
 										 data_dir=FLAGS.data_dir,
@@ -146,7 +143,7 @@ def inferences(images):
 		kernel = _variable_with_weight_decay('weights',
 											 shape=[5,5,3,64],
 											 stddev=5e-2,
-											 wd=0.0)
+											 wd=None)
 		conv =tf.nn.conv2d(images, kernel, [1,1,1,1], padding='SAME')
 		biases = _variable_on_cpu('biases', [64], tf.constant_initializer(0.0))
 		pre_activation = tf.nn.bias_add(conv, biases)
@@ -166,7 +163,7 @@ def inferences(images):
 		kernel = _variable_with_weight_decay('weights',
 											 shape=[5,5,64,64],
 											 stddev=5e-2,
-											 wd=0.0)
+											 wd=None)
 		conv = tf.nn.conv2d(norm1, kernel, [1,1,1,1], padding='SAME')
 		biases =_variable_on_cpu('biases', [64], tf.constant_initializer(0.1))
 		pre_activation = tf.nn.bias_add(conv, biases)

@@ -13,15 +13,15 @@ import roomba
 
 FLAGS = tf.app.flags.FLAGS
 
-tf.app.flags.DEFINE_string('eval_dir', r'\roomba_data',
+tf.app.flags.DEFINE_string('eval_dir', r'roomba_eval',
 						   """Directory where to write event logs.""")
 tf.app.flags.DEFINE_string('eval_data', 'test',
 						   """Either 'test' or 'train_eval'.""")
-tf.app.flags.DEFINE_string('checkpoint_dir', r'\cnn_roomba',
+tf.app.flags.DEFINE_string('checkpoint_dir', r'cnn_files',
 						   """Directory where to read model checkpoints.""")
-tf.app.flags.DEFINE_integer('eval_interval_secs', 60 * 5,
+tf.app.flags.DEFINE_integer('eval_interval_specs', 60 * 5,
 							"""How often to run the eval.""")
-tf.app.flags.DEFINE_integer('num_examples', 2000,
+tf.app.flags.DEFINE_integer('num_examples', 10000,
 							"""Number of examples to run.""")
 tf.app.flags.DEFINE_boolean('run_once', False,
 							"""Whether to run eval only once.""")
@@ -84,14 +84,12 @@ def evaluate():
 		# Get images and labels for roomba.
 		eval_data = FLAGS.eval_data == 'test'
 		images, labels = roomba.inputs(eval_data=eval_data)
-
 		# Build a Graph that computes the logits prediction from the
 		# inference model.
 		logits = roomba.inferences(images)
 
 		# Calculate predictions
 		top_k_op = tf.nn.in_top_k(logits, labels, 1)
-
 		# Restore the moving average version of the learned variables for eval.
 		variable_averages = tf.train.ExponentialMovingAverage(
 			roomba.MOVING_AVERAGE_DECAY)
@@ -112,3 +110,6 @@ def evaluate():
 
 def main(argv=None):	# pyling: disable=unused-argument
 	evaluate()
+
+if __name__ == '__main__':
+	tf.app.run()

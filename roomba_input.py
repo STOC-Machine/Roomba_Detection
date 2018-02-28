@@ -52,7 +52,6 @@ def read_roomba(filename_queue):
 
 	# Convert from a string to a vector of uint8 that is record_bytes long.
 	record_bytes = tf.decode_raw(value, tf.uint8)
-
 	# The first of the bytes represent the label, which we convert
 	# from uint8->int32.
 	result.label = tf.cast(
@@ -67,7 +66,6 @@ def read_roomba(filename_queue):
 
 	# Convert from [depth, height, width] to [height, width, depth]
 	result.uint8image = tf.transpose(depth_major, [1, 2, 0])
-
 	return result
 
 def _generate_image_and_label_batch(image, label, min_queue_examples,
@@ -154,7 +152,6 @@ def distorted_inputs(data_dir, batch_size):
 	min_fraction_of_examples_in_queue = 0.4
 	min_queue_examples = int(NUM_EXAMPLES_PER_EPOCH_FOR_TRAIN*
 							 min_fraction_of_examples_in_queue)
-	print(min_queue_examples)
 	print('Filling the queue with %d roomba images before starting to train.' % min_queue_examples)
 
 	# Generate a batch of images and labels by building up a queue of examples.
