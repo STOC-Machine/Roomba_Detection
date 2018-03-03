@@ -87,9 +87,9 @@ def evaluate():
 		# Build a Graph that computes the logits prediction from the
 		# inference model.
 		logits = roomba.inferences(images)
-
 		# Calculate predictions
 		top_k_op = tf.nn.in_top_k(logits, labels, 1)
+
 		# Restore the moving average version of the learned variables for eval.
 		variable_averages = tf.train.ExponentialMovingAverage(
 			roomba.MOVING_AVERAGE_DECAY)
