@@ -40,7 +40,8 @@ def train():
 		is_training = tf.placeholder(dtype=bool, shape=(), name='is_training')
 		imgs = tf.placeholder(tf.float32, (1,32,32,3), name='imgs')
 		images = tf.cond(is_training, lambda:images, lambda:imgs)
-		logits = roomba.inferences(images)
+		batch_size = tf.cond(is_training, lambda:128, lambda: 1)
+		logits = roomba.inferences(images,batch_size)
 
 		# Calculate loss.
 		loss = roomba.loss(logits, labels)

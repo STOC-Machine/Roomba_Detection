@@ -182,13 +182,12 @@ def inferences(images, batch_size=None):
 	# local3
 	with tf.variable_scope('local3', reuse=tf.AUTO_REUSE) as scope:
 		# Move everything into depth so we can perform a single matrix multiply
-		if not batch_size:
-			reshape = tf.reshape(pool2, [FLAGS.batch_size, -1])
-		else:
-			reshape = tf.reshape(pool2, [batch_size, -1])
+		# reshapes to proper batch_size: 1 if implementing FLAGS.BATCH_SIZE if testing or evaluating.
+		reshape = tf.reshape(pool2, [batch_size, 4096])
 		dim = reshape.get_shape()[1].value
 		if not dim:
 			dim = 4096
+
 		weights = _variable_with_weight_decay('weights', shape=[dim, 384],
 											  stddev=0.04, wd =0.004)
 		biases = _variable_on_cpu('biases', [384], tf.constant_initializer(0.1))

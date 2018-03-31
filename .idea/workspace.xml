@@ -2,37 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="01fc5cd4-4384-4402-8c30-4fe2ff8d5158" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/load_model.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/view_graph.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/events.out.tfevents.1520007773.MALCOLM-PC" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-8992.data-00000-of-00002" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-8992.data-00001-of-00002" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-8992.index" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-8992.meta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9255.data-00000-of-00002" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9255.data-00001-of-00002" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9255.index" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9255.meta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9531.data-00000-of-00002" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9531.data-00001-of-00002" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9531.index" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9531.meta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9809.data-00000-of-00002" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9809.data-00001-of-00002" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9809.index" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9809.meta" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-10000.data-00000-of-00002" afterPath="$PROJECT_DIR$/cnn_files/model.ckpt-10000.data-00000-of-00002" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-10000.data-00001-of-00002" afterPath="$PROJECT_DIR$/cnn_files/model.ckpt-10000.data-00001-of-00002" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-10000.index" afterPath="$PROJECT_DIR$/cnn_files/model.ckpt-10000.index" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-10000.meta" afterPath="$PROJECT_DIR$/cnn_files/model.ckpt-10000.meta" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/checkpoint" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/events.out.tfevents.1521393170.MALCOLM-PC" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/events.out.tfevents.1521393225.MALCOLM-PC" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/graph.pbtxt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-10000.data-00000-of-00002" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-10000.data-00001-of-00002" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-10000.index" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-10000.meta" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9052.data-00000-of-00002" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9052.data-00001-of-00002" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9052.index" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9052.meta" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9339.data-00000-of-00002" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9339.data-00001-of-00002" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9339.index" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9339.meta" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9626.data-00000-of-00002" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9626.data-00001-of-00002" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9626.index" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9626.meta" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9913.data-00000-of-00002" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9913.data-00001-of-00002" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9913.index" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9913.meta" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cnn_files/checkpoint" afterPath="$PROJECT_DIR$/cnn_files/checkpoint" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cnn_files/graph.pbtxt" afterPath="$PROJECT_DIR$/cnn_files/graph.pbtxt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/find_roomba.py" afterPath="$PROJECT_DIR$/find_roomba.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/roomba.py" afterPath="$PROJECT_DIR$/roomba.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/roomba_cam.py" afterPath="$PROJECT_DIR$/roomba_cam.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/roomba_train.py" afterPath="$PROJECT_DIR$/roomba_train.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/save_model.py" afterPath="$PROJECT_DIR$/save_model.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -42,13 +39,13 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Roomba_Detection$find_roomba.coverage" NAME="find_roomba Coverage Results" MODIFIED="1521392800899" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Roomba_Detection$roomba_cam.coverage" NAME="roomba_cam Coverage Results" MODIFIED="1521230621945" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Roomba_Detection$roomba_eval.coverage" NAME="roomba_eval Coverage Results" MODIFIED="1520607076530" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Roomba_Detection$find_roomba.coverage" NAME="find_roomba Coverage Results" MODIFIED="1522523523625" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Roomba_Detection$roomba_cam.coverage" NAME="roomba_cam Coverage Results" MODIFIED="1522513578398" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Roomba_Detection$load_model.coverage" NAME="load_model Coverage Results" MODIFIED="1521232748405" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Roomba_Detection$roomba_eval.coverage" NAME="roomba_eval Coverage Results" MODIFIED="1522513100482" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Roomba_Detection$view_graph.coverage" NAME="view_graph Coverage Results" MODIFIED="1520531005261" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Roomba_Detection$classify_image.coverage" NAME="classify_image Coverage Results" MODIFIED="1519847778486" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../models/tutorials/image/imagenet" />
-    <SUITE FILE_PATH="coverage/Roomba_Detection$roomba_train.coverage" NAME="roomba_train Coverage Results" MODIFIED="1521393222165" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Roomba_Detection$roomba_train.coverage" NAME="roomba_train Coverage Results" MODIFIED="1522523403939" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Roomba_Detection$save_model.coverage" NAME="save_model Coverage Results" MODIFIED="1520607888010" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
@@ -56,8 +53,8 @@
       <file leaf-file-name="find_roomba.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/find_roomba.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="725">
-              <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+            <state relative-caret-position="55">
+              <caret line="13" column="45" lean-forward="false" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -78,8 +75,8 @@
       <file leaf-file-name="roomba_eval.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/roomba_eval.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2150">
-              <caret line="97" column="0" lean-forward="false" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
+            <state relative-caret-position="198">
+              <caret line="74" column="27" lean-forward="false" selection-start-line="74" selection-start-column="27" selection-end-line="74" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -88,8 +85,8 @@
       <file leaf-file-name="roomba_train.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/roomba_train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="31" column="42" lean-forward="false" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
+            <state relative-caret-position="164">
+              <caret line="39" column="55" lean-forward="false" selection-start-line="39" selection-start-column="55" selection-end-line="39" selection-end-column="55" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -100,8 +97,8 @@
       <file leaf-file-name="roomba_cam.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/roomba_cam.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="800">
-              <caret line="38" column="54" lean-forward="false" selection-start-line="34" selection-start-column="8" selection-end-line="38" selection-end-column="54" />
+            <state relative-caret-position="186">
+              <caret line="20" column="43" lean-forward="false" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -112,8 +109,8 @@
       <file leaf-file-name="roomba.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/roomba.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="231" column="34" lean-forward="false" selection-start-line="231" selection-start-column="34" selection-end-line="231" selection-end-column="34" />
+            <state relative-caret-position="250">
+              <caret line="184" column="101" lean-forward="false" selection-start-line="184" selection-start-column="101" selection-end-line="184" selection-end-column="101" />
               <folding />
             </state>
           </provider>
@@ -149,8 +146,8 @@
       <find>inputs</find>
       <find>saver</find>
       <find>print</find>
-      <find>inferences</find>
       <find>local3</find>
+      <find>inferences</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -170,11 +167,11 @@
         <option value="$PROJECT_DIR$/save_model.py" />
         <option value="$PROJECT_DIR$/view_graph.py" />
         <option value="$PROJECT_DIR$/load_model.py" />
+        <option value="$USER_HOME$/Desktop/Classes/neural_networks/assignment1/cs231n/data_utils.py" />
+        <option value="$USER_HOME$/Desktop/Classes/neural_networks/assignment1/cs231n/classifiers/k_nearest_neighbor.py" />
         <option value="$PROJECT_DIR$/roomba_train.py" />
         <option value="$PROJECT_DIR$/find_roomba.py" />
         <option value="$PROJECT_DIR$/roomba.py" />
-        <option value="$USER_HOME$/Desktop/Classes/neural_networks/assignment1/cs231n/data_utils.py" />
-        <option value="$USER_HOME$/Desktop/Classes/neural_networks/assignment1/cs231n/classifiers/k_nearest_neighbor.py" />
       </list>
     </option>
   </component>
@@ -185,10 +182,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-11" />
-    <option name="y" value="-11" />
-    <option name="width" value="980" />
-    <option name="height" value="1106" />
+    <option name="x" value="404" />
+    <option name="y" value="-17" />
+    <option name="width" value="1476" />
+    <option name="height" value="1001" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -206,6 +203,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -218,7 +216,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -237,7 +234,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.roomba_train">
+  <component name="RunManager" selected="Python.find_roomba">
     <configuration name="find_roomba" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -292,6 +289,24 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
+    <configuration name="roomba_eval" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Roomba-Detection" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/roomba_eval.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
     <configuration name="roomba_train" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -310,38 +325,20 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="save_model" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Roomba-Detection" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/save_model.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.find_roomba" />
       <item index="1" class="java.lang.String" itemvalue="Python.roomba_cam" />
-      <item index="2" class="java.lang.String" itemvalue="Python.save_model" />
-      <item index="3" class="java.lang.String" itemvalue="Python.load_model" />
-      <item index="4" class="java.lang.String" itemvalue="Python.roomba_train" />
+      <item index="2" class="java.lang.String" itemvalue="Python.load_model" />
+      <item index="3" class="java.lang.String" itemvalue="Python.roomba_train" />
+      <item index="4" class="java.lang.String" itemvalue="Python.roomba_eval" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.roomba_train" />
-        <item index="1" class="java.lang.String" itemvalue="Python.find_roomba" />
-        <item index="2" class="java.lang.String" itemvalue="Python.load_model" />
-        <item index="3" class="java.lang.String" itemvalue="Python.roomba_cam" />
-        <item index="4" class="java.lang.String" itemvalue="Python.save_model" />
+        <item index="0" class="java.lang.String" itemvalue="Python.find_roomba" />
+        <item index="1" class="java.lang.String" itemvalue="Python.roomba_train" />
+        <item index="2" class="java.lang.String" itemvalue="Python.roomba_cam" />
+        <item index="3" class="java.lang.String" itemvalue="Python.roomba_eval" />
+        <item index="4" class="java.lang.String" itemvalue="Python.load_model" />
       </list>
     </recent_temporary>
   </component>
@@ -362,17 +359,17 @@
     <frame x="-11" y="-11" width="1942" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2027027" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15405406" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2888889" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30760235" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32982457" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41988304" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -381,6 +378,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Concurrent Activities Diagram" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32982457" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -389,19 +387,20 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30760235" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32982457" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16972972" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2064865" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Concurrent Activities Diagram" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32982457" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41988304" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -614,6 +613,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="146">
           <caret line="527" column="0" lean-forward="false" selection-start-line="527" selection-start-column="0" selection-end-line="527" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -635,6 +635,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="185">
           <caret line="491" column="0" lean-forward="false" selection-start-line="491" selection-start-column="0" selection-end-line="491" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -649,24 +650,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view_graph.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="23" lean-forward="false" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/roomba_cam.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="800">
-          <caret line="38" column="54" lean-forward="false" selection-start-line="34" selection-start-column="8" selection-end-line="38" selection-end-column="54" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -688,34 +671,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="292">
           <caret line="1323" column="0" lean-forward="false" selection-start-line="1323" selection-start-column="0" selection-end-line="1323" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/find_roomba.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="725">
-          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/roomba_eval.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2150">
-          <caret line="97" column="0" lean-forward="false" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/roomba_train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="31" column="42" lean-forward="false" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -733,10 +689,56 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/view_graph.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="23" lean-forward="false" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/roomba_cam.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="20" column="43" lean-forward="false" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/roomba_eval.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="74" column="27" lean-forward="false" selection-start-line="74" selection-start-column="27" selection-end-line="74" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/roomba_train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="39" column="55" lean-forward="false" selection-start-line="39" selection-start-column="55" selection-end-line="39" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/find_roomba.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="55">
+          <caret line="13" column="45" lean-forward="false" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/roomba.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="231" column="34" lean-forward="false" selection-start-line="231" selection-start-column="34" selection-end-line="231" selection-end-column="34" />
+        <state relative-caret-position="250">
+          <caret line="184" column="101" lean-forward="false" selection-start-line="184" selection-start-column="101" selection-end-line="184" selection-end-column="101" />
           <folding />
         </state>
       </provider>
