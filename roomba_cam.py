@@ -29,12 +29,14 @@ def load_trained_model(logits):
 		print(predict.eval(), '\n')
 
 def img_read(cam):
-	_, frame = cam.read()
-	frame = cv2.resize(frame, (32, 32), interpolation=cv2.INTER_CUBIC)
+	_, image = cam.read()
+	cv2.imshow("main",image)
+	if _:
+		image = cv2.resize(image, (32, 32), interpolation=cv2.INTER_CUBIC)
 
-	image = tf.Variable(frame)
-	image = tf.cast(image, tf.float32)
-	image = tf.expand_dims(image, 0, name="input")
+		image = tf.Variable(image)
+		image = tf.cast(image, tf.float32)
+		image = tf.expand_dims(image, 0, name="input")
 	return image
 cam = cv2.VideoCapture(0)
 while True:

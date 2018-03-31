@@ -4428,6 +4428,317 @@ node {
   }
 }
 node {
+  name: "is_training"
+  op: "Placeholder"
+  attr {
+    key: "_output_shapes"
+    value {
+      list {
+        shape {
+        }
+      }
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_BOOL
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+      }
+    }
+  }
+}
+node {
+  name: "imgs"
+  op: "Placeholder"
+  attr {
+    key: "_output_shapes"
+    value {
+      list {
+        shape {
+          dim {
+            size: 1
+          }
+          dim {
+            size: 32
+          }
+          dim {
+            size: 32
+          }
+          dim {
+            size: 3
+          }
+        }
+      }
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 1
+        }
+        dim {
+          size: 32
+        }
+        dim {
+          size: 32
+        }
+        dim {
+          size: 3
+        }
+      }
+    }
+  }
+}
+node {
+  name: "cond_1/Switch"
+  op: "Switch"
+  input: "is_training"
+  input: "is_training"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+  attr {
+    key: "_output_shapes"
+    value {
+      list {
+        shape {
+        }
+        shape {
+        }
+      }
+    }
+  }
+}
+node {
+  name: "cond_1/switch_t"
+  op: "Identity"
+  input: "cond_1/Switch:1"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+  attr {
+    key: "_output_shapes"
+    value {
+      list {
+        shape {
+        }
+      }
+    }
+  }
+}
+node {
+  name: "cond_1/switch_f"
+  op: "Identity"
+  input: "cond_1/Switch"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+  attr {
+    key: "_output_shapes"
+    value {
+      list {
+        shape {
+        }
+      }
+    }
+  }
+}
+node {
+  name: "cond_1/pred_id"
+  op: "Identity"
+  input: "is_training"
+  attr {
+    key: "T"
+    value {
+      type: DT_BOOL
+    }
+  }
+  attr {
+    key: "_output_shapes"
+    value {
+      list {
+        shape {
+        }
+      }
+    }
+  }
+}
+node {
+  name: "cond_1/Switch_1"
+  op: "Switch"
+  input: "shuffle_batch"
+  input: "cond_1/pred_id"
+  device: "/device:CPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@shuffle_batch"
+      }
+    }
+  }
+  attr {
+    key: "_output_shapes"
+    value {
+      list {
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 32
+          }
+          dim {
+            size: 32
+          }
+          dim {
+            size: 3
+          }
+        }
+        shape {
+          dim {
+            size: 128
+          }
+          dim {
+            size: 32
+          }
+          dim {
+            size: 32
+          }
+          dim {
+            size: 3
+          }
+        }
+      }
+    }
+  }
+}
+node {
+  name: "cond_1/Switch_2"
+  op: "Switch"
+  input: "imgs"
+  input: "cond_1/pred_id"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@imgs"
+      }
+    }
+  }
+  attr {
+    key: "_output_shapes"
+    value {
+      list {
+        shape {
+          dim {
+            size: 1
+          }
+          dim {
+            size: 32
+          }
+          dim {
+            size: 32
+          }
+          dim {
+            size: 3
+          }
+        }
+        shape {
+          dim {
+            size: 1
+          }
+          dim {
+            size: 32
+          }
+          dim {
+            size: 32
+          }
+          dim {
+            size: 3
+          }
+        }
+      }
+    }
+  }
+}
+node {
+  name: "cond_1/Merge"
+  op: "Merge"
+  input: "cond_1/Switch_2"
+  input: "cond_1/Switch_1:1"
+  attr {
+    key: "N"
+    value {
+      i: 2
+    }
+  }
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_output_shapes"
+    value {
+      list {
+        shape {
+          dim {
+            size: -1
+          }
+          dim {
+            size: 32
+          }
+          dim {
+            size: 32
+          }
+          dim {
+            size: 3
+          }
+        }
+        shape {
+        }
+      }
+    }
+  }
+}
+node {
   name: "conv1/weights/Initializer/truncated_normal/shape"
   op: "Const"
   attr {
@@ -4856,7 +5167,7 @@ node {
 node {
   name: "conv1/Conv2D"
   op: "Conv2D"
-  input: "shuffle_batch"
+  input: "cond_1/Merge"
   input: "conv1/weights/read"
   attr {
     key: "T"
@@ -4870,7 +5181,7 @@ node {
       list {
         shape {
           dim {
-            size: 128
+            size: -1
           }
           dim {
             size: 32
@@ -5106,7 +5417,7 @@ node {
       list {
         shape {
           dim {
-            size: 128
+            size: -1
           }
           dim {
             size: 32
@@ -5144,7 +5455,7 @@ node {
       list {
         shape {
           dim {
-            size: 128
+            size: -1
           }
           dim {
             size: 32
@@ -5258,7 +5569,7 @@ node {
       list {
         shape {
           dim {
-            size: 128
+            size: -1
           }
           dim {
             size: 32
@@ -5296,7 +5607,7 @@ node {
       list {
         shape {
           dim {
-            size: 128
+            size: -1
           }
           dim {
             size: 32
@@ -5448,7 +5759,7 @@ node {
       list {
         shape {
           dim {
-            size: 128
+            size: -1
           }
           dim {
             size: 16
@@ -5514,7 +5825,7 @@ node {
       list {
         shape {
           dim {
-            size: 128
+            size: -1
           }
           dim {
             size: 16
@@ -5997,7 +6308,7 @@ node {
       list {
         shape {
           dim {
-            size: 128
+            size: -1
           }
           dim {
             size: 16
@@ -6233,7 +6544,7 @@ node {
       list {
         shape {
           dim {
-            size: 128
+            size: -1
           }
           dim {
             size: 16
@@ -6271,7 +6582,7 @@ node {
       list {
         shape {
           dim {
-            size: 128
+            size: -1
           }
           dim {
             size: 16
@@ -6385,7 +6696,7 @@ node {
       list {
         shape {
           dim {
-            size: 128
+            size: -1
           }
           dim {
             size: 16
@@ -6423,7 +6734,7 @@ node {
       list {
         shape {
           dim {
-            size: 128
+            size: -1
           }
           dim {
             size: 16
@@ -6575,7 +6886,7 @@ node {
       list {
         shape {
           dim {
-            size: 128
+            size: -1
           }
           dim {
             size: 16
@@ -6631,7 +6942,7 @@ node {
       list {
         shape {
           dim {
-            size: 128
+            size: -1
           }
           dim {
             size: 8
@@ -6743,7 +7054,7 @@ node {
             size: 128
           }
           dim {
-            size: 4096
+            size: -1
           }
         }
       }
@@ -15626,7 +15937,7 @@ node {
       list {
         shape {
           dim {
-            size: 4096
+            size: -1
           }
           dim {
             size: 384
@@ -15727,8 +16038,15 @@ node {
 }
 node {
   name: "gradients/local3/Reshape_grad/Shape"
-  op: "Const"
+  op: "Shape"
+  input: "pool2"
   input: "^avg"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
   attr {
     key: "_output_shapes"
     value {
@@ -15742,23 +16060,9 @@ node {
     }
   }
   attr {
-    key: "dtype"
+    key: "out_type"
     value {
       type: DT_INT32
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_INT32
-        tensor_shape {
-          dim {
-            size: 4
-          }
-        }
-        tensor_content: "\200\000\000\000\010\000\000\000\010\000\000\000@\000\000\000"
-      }
     }
   }
 }
@@ -15860,7 +16164,7 @@ node {
       list {
         shape {
           dim {
-            size: 128
+            size: -1
           }
           dim {
             size: 16
@@ -15928,7 +16232,7 @@ node {
       list {
         shape {
           dim {
-            size: 128
+            size: -1
           }
           dim {
             size: 16
@@ -15985,7 +16289,7 @@ node {
       list {
         shape {
           dim {
-            size: 128
+            size: -1
           }
           dim {
             size: 16
@@ -16062,7 +16366,7 @@ node {
       list {
         shape {
           dim {
-            size: 128
+            size: -1
           }
           dim {
             size: 16
@@ -16310,7 +16614,7 @@ node {
       list {
         shape {
           dim {
-            size: 128
+            size: -1
           }
           dim {
             size: 16
@@ -16385,7 +16689,7 @@ node {
       list {
         shape {
           dim {
-            size: 128
+            size: -1
           }
           dim {
             size: 16
@@ -16443,7 +16747,7 @@ node {
       list {
         shape {
           dim {
-            size: 128
+            size: -1
           }
           dim {
             size: 32
@@ -16510,7 +16814,7 @@ node {
       list {
         shape {
           dim {
-            size: 128
+            size: -1
           }
           dim {
             size: 32
@@ -16587,7 +16891,7 @@ node {
       list {
         shape {
           dim {
-            size: 128
+            size: -1
           }
           dim {
             size: 32
@@ -16638,7 +16942,7 @@ node {
 node {
   name: "gradients/conv1/Conv2D_grad/ShapeN"
   op: "ShapeN"
-  input: "shuffle_batch"
+  input: "cond_1/Merge"
   input: "conv1/weights/read"
   input: "^avg"
   attr {
@@ -16743,7 +17047,7 @@ node {
 node {
   name: "gradients/conv1/Conv2D_grad/Conv2DBackpropFilter"
   op: "Conv2DBackpropFilter"
-  input: "shuffle_batch"
+  input: "cond_1/Merge"
   input: "gradients/conv1/Conv2D_grad/ShapeN:1"
   input: "gradients/conv1/BiasAdd_grad/tuple/control_dependency"
   attr {
@@ -16835,7 +17139,7 @@ node {
       list {
         shape {
           dim {
-            size: 128
+            size: -1
           }
           dim {
             size: 32
@@ -18458,7 +18762,7 @@ node {
   }
 }
 node {
-  name: "cond_1/Switch"
+  name: "cond_2/Switch"
   op: "Switch"
   input: "IsVariableInitialized"
   input: "IsVariableInitialized"
@@ -18481,9 +18785,9 @@ node {
   }
 }
 node {
-  name: "cond_1/switch_t"
+  name: "cond_2/switch_t"
   op: "Identity"
-  input: "cond_1/Switch:1"
+  input: "cond_2/Switch:1"
   attr {
     key: "T"
     value {
@@ -18501,9 +18805,9 @@ node {
   }
 }
 node {
-  name: "cond_1/switch_f"
+  name: "cond_2/switch_f"
   op: "Identity"
-  input: "cond_1/Switch"
+  input: "cond_2/Switch"
   attr {
     key: "T"
     value {
@@ -18521,7 +18825,7 @@ node {
   }
 }
 node {
-  name: "cond_1/pred_id"
+  name: "cond_2/pred_id"
   op: "Identity"
   input: "IsVariableInitialized"
   attr {
@@ -18541,10 +18845,10 @@ node {
   }
 }
 node {
-  name: "cond_1/read/Switch"
+  name: "cond_2/read/Switch"
   op: "RefSwitch"
   input: "conv1/weights"
-  input: "cond_1/pred_id"
+  input: "cond_2/pred_id"
   device: "/device:CPU:0"
   attr {
     key: "T"
@@ -18597,9 +18901,9 @@ node {
   }
 }
 node {
-  name: "cond_1/read"
+  name: "cond_2/read"
   op: "Identity"
-  input: "cond_1/read/Switch:1"
+  input: "cond_2/read/Switch:1"
   attr {
     key: "T"
     value {
@@ -18629,10 +18933,10 @@ node {
   }
 }
 node {
-  name: "cond_1/Switch_1"
+  name: "cond_2/Switch_1"
   op: "Switch"
   input: "conv1/weights/Initializer/truncated_normal"
-  input: "cond_1/pred_id"
+  input: "cond_2/pred_id"
   attr {
     key: "T"
     value {
@@ -18684,10 +18988,10 @@ node {
   }
 }
 node {
-  name: "cond_1/Merge"
+  name: "cond_2/Merge"
   op: "Merge"
-  input: "cond_1/Switch_1"
-  input: "cond_1/read"
+  input: "cond_2/Switch_1"
+  input: "cond_2/read"
   attr {
     key: "N"
     value {
@@ -19146,10 +19450,10 @@ node {
   }
 }
 node {
-  name: "conv1/weights/ExponentialMovingAverage/cond_1/read/Switch_conv1/weights/ExponentialMovingAverage_0"
+  name: "conv1/weights/ExponentialMovingAverage/cond_2/read/Switch_conv1/weights/ExponentialMovingAverage_0"
   op: "Switch"
   input: "conv1/weights/ExponentialMovingAverage/cond/Merge"
-  input: "cond_1/pred_id"
+  input: "cond_2/pred_id"
   device: "/device:CPU:0"
   attr {
     key: "T"
@@ -19202,9 +19506,9 @@ node {
   }
 }
 node {
-  name: "conv1/weights/ExponentialMovingAverage/cond_1/read_conv1/weights/ExponentialMovingAverage_0"
+  name: "conv1/weights/ExponentialMovingAverage/cond_2/read_conv1/weights/ExponentialMovingAverage_0"
   op: "Identity"
-  input: "conv1/weights/ExponentialMovingAverage/cond_1/read/Switch_conv1/weights/ExponentialMovingAverage_0:1"
+  input: "conv1/weights/ExponentialMovingAverage/cond_2/read/Switch_conv1/weights/ExponentialMovingAverage_0:1"
   device: "/device:CPU:0"
   attr {
     key: "T"
@@ -19232,10 +19536,10 @@ node {
   }
 }
 node {
-  name: "conv1/weights/ExponentialMovingAverage/cond_1/Merge_conv1/weights/ExponentialMovingAverage_0"
+  name: "conv1/weights/ExponentialMovingAverage/cond_2/Merge_conv1/weights/ExponentialMovingAverage_0"
   op: "Merge"
-  input: "cond_1/Switch_1"
-  input: "conv1/weights/ExponentialMovingAverage/cond_1/read_conv1/weights/ExponentialMovingAverage_0"
+  input: "cond_2/Switch_1"
+  input: "conv1/weights/ExponentialMovingAverage/cond_2/read_conv1/weights/ExponentialMovingAverage_0"
   device: "/device:CPU:0"
   attr {
     key: "N"
@@ -19274,7 +19578,7 @@ node {
   name: "conv1/weights/ExponentialMovingAverage/Assign"
   op: "Assign"
   input: "conv1/weights/ExponentialMovingAverage"
-  input: "conv1/weights/ExponentialMovingAverage/cond_1/Merge_conv1/weights/ExponentialMovingAverage_0"
+  input: "conv1/weights/ExponentialMovingAverage/cond_2/Merge_conv1/weights/ExponentialMovingAverage_0"
   device: "/device:CPU:0"
   attr {
     key: "T"
@@ -19395,7 +19699,7 @@ node {
   }
 }
 node {
-  name: "cond_2/Switch"
+  name: "cond_3/Switch"
   op: "Switch"
   input: "IsVariableInitialized_1"
   input: "IsVariableInitialized_1"
@@ -19418,9 +19722,9 @@ node {
   }
 }
 node {
-  name: "cond_2/switch_t"
+  name: "cond_3/switch_t"
   op: "Identity"
-  input: "cond_2/Switch:1"
+  input: "cond_3/Switch:1"
   attr {
     key: "T"
     value {
@@ -19438,9 +19742,9 @@ node {
   }
 }
 node {
-  name: "cond_2/switch_f"
+  name: "cond_3/switch_f"
   op: "Identity"
-  input: "cond_2/Switch"
+  input: "cond_3/Switch"
   attr {
     key: "T"
     value {
@@ -19458,7 +19762,7 @@ node {
   }
 }
 node {
-  name: "cond_2/pred_id"
+  name: "cond_3/pred_id"
   op: "Identity"
   input: "IsVariableInitialized_1"
   attr {
@@ -19478,10 +19782,10 @@ node {
   }
 }
 node {
-  name: "cond_2/read/Switch"
+  name: "cond_3/read/Switch"
   op: "RefSwitch"
   input: "conv1/biases"
-  input: "cond_2/pred_id"
+  input: "cond_3/pred_id"
   device: "/device:CPU:0"
   attr {
     key: "T"
@@ -19516,9 +19820,9 @@ node {
   }
 }
 node {
-  name: "cond_2/read"
+  name: "cond_3/read"
   op: "Identity"
-  input: "cond_2/read/Switch:1"
+  input: "cond_3/read/Switch:1"
   attr {
     key: "T"
     value {
@@ -19539,10 +19843,10 @@ node {
   }
 }
 node {
-  name: "cond_2/Switch_1"
+  name: "cond_3/Switch_1"
   op: "Switch"
   input: "conv1/biases/Initializer/Const"
-  input: "cond_2/pred_id"
+  input: "cond_3/pred_id"
   attr {
     key: "T"
     value {
@@ -19576,10 +19880,10 @@ node {
   }
 }
 node {
-  name: "cond_2/Merge"
+  name: "cond_3/Merge"
   op: "Merge"
-  input: "cond_2/Switch_1"
-  input: "cond_2/read"
+  input: "cond_3/Switch_1"
+  input: "cond_3/read"
   attr {
     key: "N"
     value {
@@ -19957,10 +20261,10 @@ node {
   }
 }
 node {
-  name: "conv1/biases/ExponentialMovingAverage/cond_2/read/Switch_conv1/biases/ExponentialMovingAverage_0"
+  name: "conv1/biases/ExponentialMovingAverage/cond_3/read/Switch_conv1/biases/ExponentialMovingAverage_0"
   op: "Switch"
   input: "conv1/biases/ExponentialMovingAverage/cond/Merge"
-  input: "cond_2/pred_id"
+  input: "cond_3/pred_id"
   device: "/device:CPU:0"
   attr {
     key: "T"
@@ -19995,9 +20299,9 @@ node {
   }
 }
 node {
-  name: "conv1/biases/ExponentialMovingAverage/cond_2/read_conv1/biases/ExponentialMovingAverage_0"
+  name: "conv1/biases/ExponentialMovingAverage/cond_3/read_conv1/biases/ExponentialMovingAverage_0"
   op: "Identity"
-  input: "conv1/biases/ExponentialMovingAverage/cond_2/read/Switch_conv1/biases/ExponentialMovingAverage_0:1"
+  input: "conv1/biases/ExponentialMovingAverage/cond_3/read/Switch_conv1/biases/ExponentialMovingAverage_0:1"
   device: "/device:CPU:0"
   attr {
     key: "T"
@@ -20025,10 +20329,10 @@ node {
   }
 }
 node {
-  name: "conv1/biases/ExponentialMovingAverage/cond_2/Merge_conv1/biases/ExponentialMovingAverage_0"
+  name: "conv1/biases/ExponentialMovingAverage/cond_3/Merge_conv1/biases/ExponentialMovingAverage_0"
   op: "Merge"
-  input: "cond_2/Switch_1"
-  input: "conv1/biases/ExponentialMovingAverage/cond_2/read_conv1/biases/ExponentialMovingAverage_0"
+  input: "cond_3/Switch_1"
+  input: "conv1/biases/ExponentialMovingAverage/cond_3/read_conv1/biases/ExponentialMovingAverage_0"
   device: "/device:CPU:0"
   attr {
     key: "N"
@@ -20067,7 +20371,7 @@ node {
   name: "conv1/biases/ExponentialMovingAverage/Assign"
   op: "Assign"
   input: "conv1/biases/ExponentialMovingAverage"
-  input: "conv1/biases/ExponentialMovingAverage/cond_2/Merge_conv1/biases/ExponentialMovingAverage_0"
+  input: "conv1/biases/ExponentialMovingAverage/cond_3/Merge_conv1/biases/ExponentialMovingAverage_0"
   device: "/device:CPU:0"
   attr {
     key: "T"
@@ -20170,7 +20474,7 @@ node {
   }
 }
 node {
-  name: "cond_3/Switch"
+  name: "cond_4/Switch"
   op: "Switch"
   input: "IsVariableInitialized_2"
   input: "IsVariableInitialized_2"
@@ -20193,9 +20497,9 @@ node {
   }
 }
 node {
-  name: "cond_3/switch_t"
+  name: "cond_4/switch_t"
   op: "Identity"
-  input: "cond_3/Switch:1"
+  input: "cond_4/Switch:1"
   attr {
     key: "T"
     value {
@@ -20213,9 +20517,9 @@ node {
   }
 }
 node {
-  name: "cond_3/switch_f"
+  name: "cond_4/switch_f"
   op: "Identity"
-  input: "cond_3/Switch"
+  input: "cond_4/Switch"
   attr {
     key: "T"
     value {
@@ -20233,7 +20537,7 @@ node {
   }
 }
 node {
-  name: "cond_3/pred_id"
+  name: "cond_4/pred_id"
   op: "Identity"
   input: "IsVariableInitialized_2"
   attr {
@@ -20253,10 +20557,10 @@ node {
   }
 }
 node {
-  name: "cond_3/read/Switch"
+  name: "cond_4/read/Switch"
   op: "RefSwitch"
   input: "conv2/weights"
-  input: "cond_3/pred_id"
+  input: "cond_4/pred_id"
   device: "/device:CPU:0"
   attr {
     key: "T"
@@ -20309,9 +20613,9 @@ node {
   }
 }
 node {
-  name: "cond_3/read"
+  name: "cond_4/read"
   op: "Identity"
-  input: "cond_3/read/Switch:1"
+  input: "cond_4/read/Switch:1"
   attr {
     key: "T"
     value {
@@ -20341,10 +20645,10 @@ node {
   }
 }
 node {
-  name: "cond_3/Switch_1"
+  name: "cond_4/Switch_1"
   op: "Switch"
   input: "conv2/weights/Initializer/truncated_normal"
-  input: "cond_3/pred_id"
+  input: "cond_4/pred_id"
   attr {
     key: "T"
     value {
@@ -20396,10 +20700,10 @@ node {
   }
 }
 node {
-  name: "cond_3/Merge"
+  name: "cond_4/Merge"
   op: "Merge"
-  input: "cond_3/Switch_1"
-  input: "cond_3/read"
+  input: "cond_4/Switch_1"
+  input: "cond_4/read"
   attr {
     key: "N"
     value {
@@ -20858,10 +21162,10 @@ node {
   }
 }
 node {
-  name: "conv2/weights/ExponentialMovingAverage/cond_3/read/Switch_conv2/weights/ExponentialMovingAverage_0"
+  name: "conv2/weights/ExponentialMovingAverage/cond_4/read/Switch_conv2/weights/ExponentialMovingAverage_0"
   op: "Switch"
   input: "conv2/weights/ExponentialMovingAverage/cond/Merge"
-  input: "cond_3/pred_id"
+  input: "cond_4/pred_id"
   device: "/device:CPU:0"
   attr {
     key: "T"
@@ -20914,9 +21218,9 @@ node {
   }
 }
 node {
-  name: "conv2/weights/ExponentialMovingAverage/cond_3/read_conv2/weights/ExponentialMovingAverage_0"
+  name: "conv2/weights/ExponentialMovingAverage/cond_4/read_conv2/weights/ExponentialMovingAverage_0"
   op: "Identity"
-  input: "conv2/weights/ExponentialMovingAverage/cond_3/read/Switch_conv2/weights/ExponentialMovingAverage_0:1"
+  input: "conv2/weights/ExponentialMovingAverage/cond_4/read/Switch_conv2/weights/ExponentialMovingAverage_0:1"
   device: "/device:CPU:0"
   attr {
     key: "T"
@@ -20944,10 +21248,10 @@ node {
   }
 }
 node {
-  name: "conv2/weights/ExponentialMovingAverage/cond_3/Merge_conv2/weights/ExponentialMovingAverage_0"
+  name: "conv2/weights/ExponentialMovingAverage/cond_4/Merge_conv2/weights/ExponentialMovingAverage_0"
   op: "Merge"
-  input: "cond_3/Switch_1"
-  input: "conv2/weights/ExponentialMovingAverage/cond_3/read_conv2/weights/ExponentialMovingAverage_0"
+  input: "cond_4/Switch_1"
+  input: "conv2/weights/ExponentialMovingAverage/cond_4/read_conv2/weights/ExponentialMovingAverage_0"
   device: "/device:CPU:0"
   attr {
     key: "N"
@@ -20986,7 +21290,7 @@ node {
   name: "conv2/weights/ExponentialMovingAverage/Assign"
   op: "Assign"
   input: "conv2/weights/ExponentialMovingAverage"
-  input: "conv2/weights/ExponentialMovingAverage/cond_3/Merge_conv2/weights/ExponentialMovingAverage_0"
+  input: "conv2/weights/ExponentialMovingAverage/cond_4/Merge_conv2/weights/ExponentialMovingAverage_0"
   device: "/device:CPU:0"
   attr {
     key: "T"
@@ -21107,7 +21411,7 @@ node {
   }
 }
 node {
-  name: "cond_4/Switch"
+  name: "cond_5/Switch"
   op: "Switch"
   input: "IsVariableInitialized_3"
   input: "IsVariableInitialized_3"
@@ -21130,9 +21434,9 @@ node {
   }
 }
 node {
-  name: "cond_4/switch_t"
+  name: "cond_5/switch_t"
   op: "Identity"
-  input: "cond_4/Switch:1"
+  input: "cond_5/Switch:1"
   attr {
     key: "T"
     value {
@@ -21150,9 +21454,9 @@ node {
   }
 }
 node {
-  name: "cond_4/switch_f"
+  name: "cond_5/switch_f"
   op: "Identity"
-  input: "cond_4/Switch"
+  input: "cond_5/Switch"
   attr {
     key: "T"
     value {
@@ -21170,7 +21474,7 @@ node {
   }
 }
 node {
-  name: "cond_4/pred_id"
+  name: "cond_5/pred_id"
   op: "Identity"
   input: "IsVariableInitialized_3"
   attr {
@@ -21190,10 +21494,10 @@ node {
   }
 }
 node {
-  name: "cond_4/read/Switch"
+  name: "cond_5/read/Switch"
   op: "RefSwitch"
   input: "conv2/biases"
-  input: "cond_4/pred_id"
+  input: "cond_5/pred_id"
   device: "/device:CPU:0"
   attr {
     key: "T"
@@ -21228,9 +21532,9 @@ node {
   }
 }
 node {
-  name: "cond_4/read"
+  name: "cond_5/read"
   op: "Identity"
-  input: "cond_4/read/Switch:1"
+  input: "cond_5/read/Switch:1"
   attr {
     key: "T"
     value {
@@ -21251,10 +21555,10 @@ node {
   }
 }
 node {
-  name: "cond_4/Switch_1"
+  name: "cond_5/Switch_1"
   op: "Switch"
   input: "conv2/biases/Initializer/Const"
-  input: "cond_4/pred_id"
+  input: "cond_5/pred_id"
   attr {
     key: "T"
     value {
@@ -21288,10 +21592,10 @@ node {
   }
 }
 node {
-  name: "cond_4/Merge"
+  name: "cond_5/Merge"
   op: "Merge"
-  input: "cond_4/Switch_1"
-  input: "cond_4/read"
+  input: "cond_5/Switch_1"
+  input: "cond_5/read"
   attr {
     key: "N"
     value {
@@ -21669,10 +21973,10 @@ node {
   }
 }
 node {
-  name: "conv2/biases/ExponentialMovingAverage/cond_4/read/Switch_conv2/biases/ExponentialMovingAverage_0"
+  name: "conv2/biases/ExponentialMovingAverage/cond_5/read/Switch_conv2/biases/ExponentialMovingAverage_0"
   op: "Switch"
   input: "conv2/biases/ExponentialMovingAverage/cond/Merge"
-  input: "cond_4/pred_id"
+  input: "cond_5/pred_id"
   device: "/device:CPU:0"
   attr {
     key: "T"
@@ -21707,9 +22011,9 @@ node {
   }
 }
 node {
-  name: "conv2/biases/ExponentialMovingAverage/cond_4/read_conv2/biases/ExponentialMovingAverage_0"
+  name: "conv2/biases/ExponentialMovingAverage/cond_5/read_conv2/biases/ExponentialMovingAverage_0"
   op: "Identity"
-  input: "conv2/biases/ExponentialMovingAverage/cond_4/read/Switch_conv2/biases/ExponentialMovingAverage_0:1"
+  input: "conv2/biases/ExponentialMovingAverage/cond_5/read/Switch_conv2/biases/ExponentialMovingAverage_0:1"
   device: "/device:CPU:0"
   attr {
     key: "T"
@@ -21737,10 +22041,10 @@ node {
   }
 }
 node {
-  name: "conv2/biases/ExponentialMovingAverage/cond_4/Merge_conv2/biases/ExponentialMovingAverage_0"
+  name: "conv2/biases/ExponentialMovingAverage/cond_5/Merge_conv2/biases/ExponentialMovingAverage_0"
   op: "Merge"
-  input: "cond_4/Switch_1"
-  input: "conv2/biases/ExponentialMovingAverage/cond_4/read_conv2/biases/ExponentialMovingAverage_0"
+  input: "cond_5/Switch_1"
+  input: "conv2/biases/ExponentialMovingAverage/cond_5/read_conv2/biases/ExponentialMovingAverage_0"
   device: "/device:CPU:0"
   attr {
     key: "N"
@@ -21779,7 +22083,7 @@ node {
   name: "conv2/biases/ExponentialMovingAverage/Assign"
   op: "Assign"
   input: "conv2/biases/ExponentialMovingAverage"
-  input: "conv2/biases/ExponentialMovingAverage/cond_4/Merge_conv2/biases/ExponentialMovingAverage_0"
+  input: "conv2/biases/ExponentialMovingAverage/cond_5/Merge_conv2/biases/ExponentialMovingAverage_0"
   device: "/device:CPU:0"
   attr {
     key: "T"
@@ -21882,7 +22186,7 @@ node {
   }
 }
 node {
-  name: "cond_5/Switch"
+  name: "cond_6/Switch"
   op: "Switch"
   input: "IsVariableInitialized_4"
   input: "IsVariableInitialized_4"
@@ -21905,9 +22209,9 @@ node {
   }
 }
 node {
-  name: "cond_5/switch_t"
+  name: "cond_6/switch_t"
   op: "Identity"
-  input: "cond_5/Switch:1"
+  input: "cond_6/Switch:1"
   attr {
     key: "T"
     value {
@@ -21925,9 +22229,9 @@ node {
   }
 }
 node {
-  name: "cond_5/switch_f"
+  name: "cond_6/switch_f"
   op: "Identity"
-  input: "cond_5/Switch"
+  input: "cond_6/Switch"
   attr {
     key: "T"
     value {
@@ -21945,7 +22249,7 @@ node {
   }
 }
 node {
-  name: "cond_5/pred_id"
+  name: "cond_6/pred_id"
   op: "Identity"
   input: "IsVariableInitialized_4"
   attr {
@@ -21965,10 +22269,10 @@ node {
   }
 }
 node {
-  name: "cond_5/read/Switch"
+  name: "cond_6/read/Switch"
   op: "RefSwitch"
   input: "local3/weights"
-  input: "cond_5/pred_id"
+  input: "cond_6/pred_id"
   device: "/device:CPU:0"
   attr {
     key: "T"
@@ -22009,9 +22313,9 @@ node {
   }
 }
 node {
-  name: "cond_5/read"
+  name: "cond_6/read"
   op: "Identity"
-  input: "cond_5/read/Switch:1"
+  input: "cond_6/read/Switch:1"
   attr {
     key: "T"
     value {
@@ -22035,10 +22339,10 @@ node {
   }
 }
 node {
-  name: "cond_5/Switch_1"
+  name: "cond_6/Switch_1"
   op: "Switch"
   input: "local3/weights/Initializer/truncated_normal"
-  input: "cond_5/pred_id"
+  input: "cond_6/pred_id"
   attr {
     key: "T"
     value {
@@ -22078,10 +22382,10 @@ node {
   }
 }
 node {
-  name: "cond_5/Merge"
+  name: "cond_6/Merge"
   op: "Merge"
-  input: "cond_5/Switch_1"
-  input: "cond_5/read"
+  input: "cond_6/Switch_1"
+  input: "cond_6/read"
   attr {
     key: "N"
     value {
@@ -22486,10 +22790,10 @@ node {
   }
 }
 node {
-  name: "local3/weights/ExponentialMovingAverage/cond_5/read/Switch_local3/weights/ExponentialMovingAverage_0"
+  name: "local3/weights/ExponentialMovingAverage/cond_6/read/Switch_local3/weights/ExponentialMovingAverage_0"
   op: "Switch"
   input: "local3/weights/ExponentialMovingAverage/cond/Merge"
-  input: "cond_5/pred_id"
+  input: "cond_6/pred_id"
   device: "/device:CPU:0"
   attr {
     key: "T"
@@ -22530,9 +22834,9 @@ node {
   }
 }
 node {
-  name: "local3/weights/ExponentialMovingAverage/cond_5/read_local3/weights/ExponentialMovingAverage_0"
+  name: "local3/weights/ExponentialMovingAverage/cond_6/read_local3/weights/ExponentialMovingAverage_0"
   op: "Identity"
-  input: "local3/weights/ExponentialMovingAverage/cond_5/read/Switch_local3/weights/ExponentialMovingAverage_0:1"
+  input: "local3/weights/ExponentialMovingAverage/cond_6/read/Switch_local3/weights/ExponentialMovingAverage_0:1"
   device: "/device:CPU:0"
   attr {
     key: "T"
@@ -22560,10 +22864,10 @@ node {
   }
 }
 node {
-  name: "local3/weights/ExponentialMovingAverage/cond_5/Merge_local3/weights/ExponentialMovingAverage_0"
+  name: "local3/weights/ExponentialMovingAverage/cond_6/Merge_local3/weights/ExponentialMovingAverage_0"
   op: "Merge"
-  input: "cond_5/Switch_1"
-  input: "local3/weights/ExponentialMovingAverage/cond_5/read_local3/weights/ExponentialMovingAverage_0"
+  input: "cond_6/Switch_1"
+  input: "local3/weights/ExponentialMovingAverage/cond_6/read_local3/weights/ExponentialMovingAverage_0"
   device: "/device:CPU:0"
   attr {
     key: "N"
@@ -22602,7 +22906,7 @@ node {
   name: "local3/weights/ExponentialMovingAverage/Assign"
   op: "Assign"
   input: "local3/weights/ExponentialMovingAverage"
-  input: "local3/weights/ExponentialMovingAverage/cond_5/Merge_local3/weights/ExponentialMovingAverage_0"
+  input: "local3/weights/ExponentialMovingAverage/cond_6/Merge_local3/weights/ExponentialMovingAverage_0"
   device: "/device:CPU:0"
   attr {
     key: "T"
@@ -22711,7 +23015,7 @@ node {
   }
 }
 node {
-  name: "cond_6/Switch"
+  name: "cond_7/Switch"
   op: "Switch"
   input: "IsVariableInitialized_5"
   input: "IsVariableInitialized_5"
@@ -22734,9 +23038,9 @@ node {
   }
 }
 node {
-  name: "cond_6/switch_t"
+  name: "cond_7/switch_t"
   op: "Identity"
-  input: "cond_6/Switch:1"
+  input: "cond_7/Switch:1"
   attr {
     key: "T"
     value {
@@ -22754,9 +23058,9 @@ node {
   }
 }
 node {
-  name: "cond_6/switch_f"
+  name: "cond_7/switch_f"
   op: "Identity"
-  input: "cond_6/Switch"
+  input: "cond_7/Switch"
   attr {
     key: "T"
     value {
@@ -22774,7 +23078,7 @@ node {
   }
 }
 node {
-  name: "cond_6/pred_id"
+  name: "cond_7/pred_id"
   op: "Identity"
   input: "IsVariableInitialized_5"
   attr {
@@ -22794,10 +23098,10 @@ node {
   }
 }
 node {
-  name: "cond_6/read/Switch"
+  name: "cond_7/read/Switch"
   op: "RefSwitch"
   input: "local3/biases"
-  input: "cond_6/pred_id"
+  input: "cond_7/pred_id"
   device: "/device:CPU:0"
   attr {
     key: "T"
@@ -22832,9 +23136,9 @@ node {
   }
 }
 node {
-  name: "cond_6/read"
+  name: "cond_7/read"
   op: "Identity"
-  input: "cond_6/read/Switch:1"
+  input: "cond_7/read/Switch:1"
   attr {
     key: "T"
     value {
@@ -22855,10 +23159,10 @@ node {
   }
 }
 node {
-  name: "cond_6/Switch_1"
+  name: "cond_7/Switch_1"
   op: "Switch"
   input: "local3/biases/Initializer/Const"
-  input: "cond_6/pred_id"
+  input: "cond_7/pred_id"
   attr {
     key: "T"
     value {
@@ -22892,10 +23196,10 @@ node {
   }
 }
 node {
-  name: "cond_6/Merge"
+  name: "cond_7/Merge"
   op: "Merge"
-  input: "cond_6/Switch_1"
-  input: "cond_6/read"
+  input: "cond_7/Switch_1"
+  input: "cond_7/read"
   attr {
     key: "N"
     value {
@@ -23273,10 +23577,10 @@ node {
   }
 }
 node {
-  name: "local3/biases/ExponentialMovingAverage/cond_6/read/Switch_local3/biases/ExponentialMovingAverage_0"
+  name: "local3/biases/ExponentialMovingAverage/cond_7/read/Switch_local3/biases/ExponentialMovingAverage_0"
   op: "Switch"
   input: "local3/biases/ExponentialMovingAverage/cond/Merge"
-  input: "cond_6/pred_id"
+  input: "cond_7/pred_id"
   device: "/device:CPU:0"
   attr {
     key: "T"
@@ -23311,9 +23615,9 @@ node {
   }
 }
 node {
-  name: "local3/biases/ExponentialMovingAverage/cond_6/read_local3/biases/ExponentialMovingAverage_0"
+  name: "local3/biases/ExponentialMovingAverage/cond_7/read_local3/biases/ExponentialMovingAverage_0"
   op: "Identity"
-  input: "local3/biases/ExponentialMovingAverage/cond_6/read/Switch_local3/biases/ExponentialMovingAverage_0:1"
+  input: "local3/biases/ExponentialMovingAverage/cond_7/read/Switch_local3/biases/ExponentialMovingAverage_0:1"
   device: "/device:CPU:0"
   attr {
     key: "T"
@@ -23341,10 +23645,10 @@ node {
   }
 }
 node {
-  name: "local3/biases/ExponentialMovingAverage/cond_6/Merge_local3/biases/ExponentialMovingAverage_0"
+  name: "local3/biases/ExponentialMovingAverage/cond_7/Merge_local3/biases/ExponentialMovingAverage_0"
   op: "Merge"
-  input: "cond_6/Switch_1"
-  input: "local3/biases/ExponentialMovingAverage/cond_6/read_local3/biases/ExponentialMovingAverage_0"
+  input: "cond_7/Switch_1"
+  input: "local3/biases/ExponentialMovingAverage/cond_7/read_local3/biases/ExponentialMovingAverage_0"
   device: "/device:CPU:0"
   attr {
     key: "N"
@@ -23383,7 +23687,7 @@ node {
   name: "local3/biases/ExponentialMovingAverage/Assign"
   op: "Assign"
   input: "local3/biases/ExponentialMovingAverage"
-  input: "local3/biases/ExponentialMovingAverage/cond_6/Merge_local3/biases/ExponentialMovingAverage_0"
+  input: "local3/biases/ExponentialMovingAverage/cond_7/Merge_local3/biases/ExponentialMovingAverage_0"
   device: "/device:CPU:0"
   attr {
     key: "T"
@@ -23486,7 +23790,7 @@ node {
   }
 }
 node {
-  name: "cond_7/Switch"
+  name: "cond_8/Switch"
   op: "Switch"
   input: "IsVariableInitialized_6"
   input: "IsVariableInitialized_6"
@@ -23509,9 +23813,9 @@ node {
   }
 }
 node {
-  name: "cond_7/switch_t"
+  name: "cond_8/switch_t"
   op: "Identity"
-  input: "cond_7/Switch:1"
+  input: "cond_8/Switch:1"
   attr {
     key: "T"
     value {
@@ -23529,9 +23833,9 @@ node {
   }
 }
 node {
-  name: "cond_7/switch_f"
+  name: "cond_8/switch_f"
   op: "Identity"
-  input: "cond_7/Switch"
+  input: "cond_8/Switch"
   attr {
     key: "T"
     value {
@@ -23549,7 +23853,7 @@ node {
   }
 }
 node {
-  name: "cond_7/pred_id"
+  name: "cond_8/pred_id"
   op: "Identity"
   input: "IsVariableInitialized_6"
   attr {
@@ -23569,10 +23873,10 @@ node {
   }
 }
 node {
-  name: "cond_7/read/Switch"
+  name: "cond_8/read/Switch"
   op: "RefSwitch"
   input: "local4/weights"
-  input: "cond_7/pred_id"
+  input: "cond_8/pred_id"
   device: "/device:CPU:0"
   attr {
     key: "T"
@@ -23613,9 +23917,9 @@ node {
   }
 }
 node {
-  name: "cond_7/read"
+  name: "cond_8/read"
   op: "Identity"
-  input: "cond_7/read/Switch:1"
+  input: "cond_8/read/Switch:1"
   attr {
     key: "T"
     value {
@@ -23639,10 +23943,10 @@ node {
   }
 }
 node {
-  name: "cond_7/Switch_1"
+  name: "cond_8/Switch_1"
   op: "Switch"
   input: "local4/weights/Initializer/truncated_normal"
-  input: "cond_7/pred_id"
+  input: "cond_8/pred_id"
   attr {
     key: "T"
     value {
@@ -23682,10 +23986,10 @@ node {
   }
 }
 node {
-  name: "cond_7/Merge"
+  name: "cond_8/Merge"
   op: "Merge"
-  input: "cond_7/Switch_1"
-  input: "cond_7/read"
+  input: "cond_8/Switch_1"
+  input: "cond_8/read"
   attr {
     key: "N"
     value {
@@ -24090,10 +24394,10 @@ node {
   }
 }
 node {
-  name: "local4/weights/ExponentialMovingAverage/cond_7/read/Switch_local4/weights/ExponentialMovingAverage_0"
+  name: "local4/weights/ExponentialMovingAverage/cond_8/read/Switch_local4/weights/ExponentialMovingAverage_0"
   op: "Switch"
   input: "local4/weights/ExponentialMovingAverage/cond/Merge"
-  input: "cond_7/pred_id"
+  input: "cond_8/pred_id"
   device: "/device:CPU:0"
   attr {
     key: "T"
@@ -24134,9 +24438,9 @@ node {
   }
 }
 node {
-  name: "local4/weights/ExponentialMovingAverage/cond_7/read_local4/weights/ExponentialMovingAverage_0"
+  name: "local4/weights/ExponentialMovingAverage/cond_8/read_local4/weights/ExponentialMovingAverage_0"
   op: "Identity"
-  input: "local4/weights/ExponentialMovingAverage/cond_7/read/Switch_local4/weights/ExponentialMovingAverage_0:1"
+  input: "local4/weights/ExponentialMovingAverage/cond_8/read/Switch_local4/weights/ExponentialMovingAverage_0:1"
   device: "/device:CPU:0"
   attr {
     key: "T"
@@ -24164,10 +24468,10 @@ node {
   }
 }
 node {
-  name: "local4/weights/ExponentialMovingAverage/cond_7/Merge_local4/weights/ExponentialMovingAverage_0"
+  name: "local4/weights/ExponentialMovingAverage/cond_8/Merge_local4/weights/ExponentialMovingAverage_0"
   op: "Merge"
-  input: "cond_7/Switch_1"
-  input: "local4/weights/ExponentialMovingAverage/cond_7/read_local4/weights/ExponentialMovingAverage_0"
+  input: "cond_8/Switch_1"
+  input: "local4/weights/ExponentialMovingAverage/cond_8/read_local4/weights/ExponentialMovingAverage_0"
   device: "/device:CPU:0"
   attr {
     key: "N"
@@ -24206,7 +24510,7 @@ node {
   name: "local4/weights/ExponentialMovingAverage/Assign"
   op: "Assign"
   input: "local4/weights/ExponentialMovingAverage"
-  input: "local4/weights/ExponentialMovingAverage/cond_7/Merge_local4/weights/ExponentialMovingAverage_0"
+  input: "local4/weights/ExponentialMovingAverage/cond_8/Merge_local4/weights/ExponentialMovingAverage_0"
   device: "/device:CPU:0"
   attr {
     key: "T"
@@ -24315,7 +24619,7 @@ node {
   }
 }
 node {
-  name: "cond_8/Switch"
+  name: "cond_9/Switch"
   op: "Switch"
   input: "IsVariableInitialized_7"
   input: "IsVariableInitialized_7"
@@ -24338,9 +24642,9 @@ node {
   }
 }
 node {
-  name: "cond_8/switch_t"
+  name: "cond_9/switch_t"
   op: "Identity"
-  input: "cond_8/Switch:1"
+  input: "cond_9/Switch:1"
   attr {
     key: "T"
     value {
@@ -24358,9 +24662,9 @@ node {
   }
 }
 node {
-  name: "cond_8/switch_f"
+  name: "cond_9/switch_f"
   op: "Identity"
-  input: "cond_8/Switch"
+  input: "cond_9/Switch"
   attr {
     key: "T"
     value {
@@ -24378,7 +24682,7 @@ node {
   }
 }
 node {
-  name: "cond_8/pred_id"
+  name: "cond_9/pred_id"
   op: "Identity"
   input: "IsVariableInitialized_7"
   attr {
@@ -24398,10 +24702,10 @@ node {
   }
 }
 node {
-  name: "cond_8/read/Switch"
+  name: "cond_9/read/Switch"
   op: "RefSwitch"
   input: "local4/biases"
-  input: "cond_8/pred_id"
+  input: "cond_9/pred_id"
   device: "/device:CPU:0"
   attr {
     key: "T"
@@ -24436,9 +24740,9 @@ node {
   }
 }
 node {
-  name: "cond_8/read"
+  name: "cond_9/read"
   op: "Identity"
-  input: "cond_8/read/Switch:1"
+  input: "cond_9/read/Switch:1"
   attr {
     key: "T"
     value {
@@ -24459,10 +24763,10 @@ node {
   }
 }
 node {
-  name: "cond_8/Switch_1"
+  name: "cond_9/Switch_1"
   op: "Switch"
   input: "local4/biases/Initializer/Const"
-  input: "cond_8/pred_id"
+  input: "cond_9/pred_id"
   attr {
     key: "T"
     value {
@@ -24496,10 +24800,10 @@ node {
   }
 }
 node {
-  name: "cond_8/Merge"
+  name: "cond_9/Merge"
   op: "Merge"
-  input: "cond_8/Switch_1"
-  input: "cond_8/read"
+  input: "cond_9/Switch_1"
+  input: "cond_9/read"
   attr {
     key: "N"
     value {
@@ -24877,10 +25181,10 @@ node {
   }
 }
 node {
-  name: "local4/biases/ExponentialMovingAverage/cond_8/read/Switch_local4/biases/ExponentialMovingAverage_0"
+  name: "local4/biases/ExponentialMovingAverage/cond_9/read/Switch_local4/biases/ExponentialMovingAverage_0"
   op: "Switch"
   input: "local4/biases/ExponentialMovingAverage/cond/Merge"
-  input: "cond_8/pred_id"
+  input: "cond_9/pred_id"
   device: "/device:CPU:0"
   attr {
     key: "T"
@@ -24915,9 +25219,9 @@ node {
   }
 }
 node {
-  name: "local4/biases/ExponentialMovingAverage/cond_8/read_local4/biases/ExponentialMovingAverage_0"
+  name: "local4/biases/ExponentialMovingAverage/cond_9/read_local4/biases/ExponentialMovingAverage_0"
   op: "Identity"
-  input: "local4/biases/ExponentialMovingAverage/cond_8/read/Switch_local4/biases/ExponentialMovingAverage_0:1"
+  input: "local4/biases/ExponentialMovingAverage/cond_9/read/Switch_local4/biases/ExponentialMovingAverage_0:1"
   device: "/device:CPU:0"
   attr {
     key: "T"
@@ -24945,10 +25249,10 @@ node {
   }
 }
 node {
-  name: "local4/biases/ExponentialMovingAverage/cond_8/Merge_local4/biases/ExponentialMovingAverage_0"
+  name: "local4/biases/ExponentialMovingAverage/cond_9/Merge_local4/biases/ExponentialMovingAverage_0"
   op: "Merge"
-  input: "cond_8/Switch_1"
-  input: "local4/biases/ExponentialMovingAverage/cond_8/read_local4/biases/ExponentialMovingAverage_0"
+  input: "cond_9/Switch_1"
+  input: "local4/biases/ExponentialMovingAverage/cond_9/read_local4/biases/ExponentialMovingAverage_0"
   device: "/device:CPU:0"
   attr {
     key: "N"
@@ -24987,7 +25291,7 @@ node {
   name: "local4/biases/ExponentialMovingAverage/Assign"
   op: "Assign"
   input: "local4/biases/ExponentialMovingAverage"
-  input: "local4/biases/ExponentialMovingAverage/cond_8/Merge_local4/biases/ExponentialMovingAverage_0"
+  input: "local4/biases/ExponentialMovingAverage/cond_9/Merge_local4/biases/ExponentialMovingAverage_0"
   device: "/device:CPU:0"
   attr {
     key: "T"
@@ -25090,7 +25394,7 @@ node {
   }
 }
 node {
-  name: "cond_9/Switch"
+  name: "cond_10/Switch"
   op: "Switch"
   input: "IsVariableInitialized_8"
   input: "IsVariableInitialized_8"
@@ -25113,9 +25417,9 @@ node {
   }
 }
 node {
-  name: "cond_9/switch_t"
+  name: "cond_10/switch_t"
   op: "Identity"
-  input: "cond_9/Switch:1"
+  input: "cond_10/Switch:1"
   attr {
     key: "T"
     value {
@@ -25133,9 +25437,9 @@ node {
   }
 }
 node {
-  name: "cond_9/switch_f"
+  name: "cond_10/switch_f"
   op: "Identity"
-  input: "cond_9/Switch"
+  input: "cond_10/Switch"
   attr {
     key: "T"
     value {
@@ -25153,7 +25457,7 @@ node {
   }
 }
 node {
-  name: "cond_9/pred_id"
+  name: "cond_10/pred_id"
   op: "Identity"
   input: "IsVariableInitialized_8"
   attr {
@@ -25173,10 +25477,10 @@ node {
   }
 }
 node {
-  name: "cond_9/read/Switch"
+  name: "cond_10/read/Switch"
   op: "RefSwitch"
   input: "softmax_linear/weights"
-  input: "cond_9/pred_id"
+  input: "cond_10/pred_id"
   device: "/device:CPU:0"
   attr {
     key: "T"
@@ -25217,9 +25521,9 @@ node {
   }
 }
 node {
-  name: "cond_9/read"
+  name: "cond_10/read"
   op: "Identity"
-  input: "cond_9/read/Switch:1"
+  input: "cond_10/read/Switch:1"
   attr {
     key: "T"
     value {
@@ -25243,10 +25547,10 @@ node {
   }
 }
 node {
-  name: "cond_9/Switch_1"
+  name: "cond_10/Switch_1"
   op: "Switch"
   input: "softmax_linear/weights/Initializer/truncated_normal"
-  input: "cond_9/pred_id"
+  input: "cond_10/pred_id"
   attr {
     key: "T"
     value {
@@ -25286,10 +25590,10 @@ node {
   }
 }
 node {
-  name: "cond_9/Merge"
+  name: "cond_10/Merge"
   op: "Merge"
-  input: "cond_9/Switch_1"
-  input: "cond_9/read"
+  input: "cond_10/Switch_1"
+  input: "cond_10/read"
   attr {
     key: "N"
     value {
@@ -25694,10 +25998,10 @@ node {
   }
 }
 node {
-  name: "softmax_linear/weights/ExponentialMovingAverage/cond_9/read/Switch_softmax_linear/weights/ExponentialMovingAverage_0"
+  name: "softmax_linear/weights/ExponentialMovingAverage/cond_10/read/Switch_softmax_linear/weights/ExponentialMovingAverage_0"
   op: "Switch"
   input: "softmax_linear/weights/ExponentialMovingAverage/cond/Merge"
-  input: "cond_9/pred_id"
+  input: "cond_10/pred_id"
   device: "/device:CPU:0"
   attr {
     key: "T"
@@ -25738,9 +26042,9 @@ node {
   }
 }
 node {
-  name: "softmax_linear/weights/ExponentialMovingAverage/cond_9/read_softmax_linear/weights/ExponentialMovingAverage_0"
+  name: "softmax_linear/weights/ExponentialMovingAverage/cond_10/read_softmax_linear/weights/ExponentialMovingAverage_0"
   op: "Identity"
-  input: "softmax_linear/weights/ExponentialMovingAverage/cond_9/read/Switch_softmax_linear/weights/ExponentialMovingAverage_0:1"
+  input: "softmax_linear/weights/ExponentialMovingAverage/cond_10/read/Switch_softmax_linear/weights/ExponentialMovingAverage_0:1"
   device: "/device:CPU:0"
   attr {
     key: "T"
@@ -25768,10 +26072,10 @@ node {
   }
 }
 node {
-  name: "softmax_linear/weights/ExponentialMovingAverage/cond_9/Merge_softmax_linear/weights/ExponentialMovingAverage_0"
+  name: "softmax_linear/weights/ExponentialMovingAverage/cond_10/Merge_softmax_linear/weights/ExponentialMovingAverage_0"
   op: "Merge"
-  input: "cond_9/Switch_1"
-  input: "softmax_linear/weights/ExponentialMovingAverage/cond_9/read_softmax_linear/weights/ExponentialMovingAverage_0"
+  input: "cond_10/Switch_1"
+  input: "softmax_linear/weights/ExponentialMovingAverage/cond_10/read_softmax_linear/weights/ExponentialMovingAverage_0"
   device: "/device:CPU:0"
   attr {
     key: "N"
@@ -25810,7 +26114,7 @@ node {
   name: "softmax_linear/weights/ExponentialMovingAverage/Assign"
   op: "Assign"
   input: "softmax_linear/weights/ExponentialMovingAverage"
-  input: "softmax_linear/weights/ExponentialMovingAverage/cond_9/Merge_softmax_linear/weights/ExponentialMovingAverage_0"
+  input: "softmax_linear/weights/ExponentialMovingAverage/cond_10/Merge_softmax_linear/weights/ExponentialMovingAverage_0"
   device: "/device:CPU:0"
   attr {
     key: "T"
@@ -25919,7 +26223,7 @@ node {
   }
 }
 node {
-  name: "cond_10/Switch"
+  name: "cond_11/Switch"
   op: "Switch"
   input: "IsVariableInitialized_9"
   input: "IsVariableInitialized_9"
@@ -25942,9 +26246,9 @@ node {
   }
 }
 node {
-  name: "cond_10/switch_t"
+  name: "cond_11/switch_t"
   op: "Identity"
-  input: "cond_10/Switch:1"
+  input: "cond_11/Switch:1"
   attr {
     key: "T"
     value {
@@ -25962,9 +26266,9 @@ node {
   }
 }
 node {
-  name: "cond_10/switch_f"
+  name: "cond_11/switch_f"
   op: "Identity"
-  input: "cond_10/Switch"
+  input: "cond_11/Switch"
   attr {
     key: "T"
     value {
@@ -25982,7 +26286,7 @@ node {
   }
 }
 node {
-  name: "cond_10/pred_id"
+  name: "cond_11/pred_id"
   op: "Identity"
   input: "IsVariableInitialized_9"
   attr {
@@ -26002,10 +26306,10 @@ node {
   }
 }
 node {
-  name: "cond_10/read/Switch"
+  name: "cond_11/read/Switch"
   op: "RefSwitch"
   input: "softmax_linear/biases"
-  input: "cond_10/pred_id"
+  input: "cond_11/pred_id"
   device: "/device:CPU:0"
   attr {
     key: "T"
@@ -26040,9 +26344,9 @@ node {
   }
 }
 node {
-  name: "cond_10/read"
+  name: "cond_11/read"
   op: "Identity"
-  input: "cond_10/read/Switch:1"
+  input: "cond_11/read/Switch:1"
   attr {
     key: "T"
     value {
@@ -26063,10 +26367,10 @@ node {
   }
 }
 node {
-  name: "cond_10/Switch_1"
+  name: "cond_11/Switch_1"
   op: "Switch"
   input: "softmax_linear/biases/Initializer/Const"
-  input: "cond_10/pred_id"
+  input: "cond_11/pred_id"
   attr {
     key: "T"
     value {
@@ -26100,10 +26404,10 @@ node {
   }
 }
 node {
-  name: "cond_10/Merge"
+  name: "cond_11/Merge"
   op: "Merge"
-  input: "cond_10/Switch_1"
-  input: "cond_10/read"
+  input: "cond_11/Switch_1"
+  input: "cond_11/read"
   attr {
     key: "N"
     value {
@@ -26481,10 +26785,10 @@ node {
   }
 }
 node {
-  name: "softmax_linear/biases/ExponentialMovingAverage/cond_10/read/Switch_softmax_linear/biases/ExponentialMovingAverage_0"
+  name: "softmax_linear/biases/ExponentialMovingAverage/cond_11/read/Switch_softmax_linear/biases/ExponentialMovingAverage_0"
   op: "Switch"
   input: "softmax_linear/biases/ExponentialMovingAverage/cond/Merge"
-  input: "cond_10/pred_id"
+  input: "cond_11/pred_id"
   device: "/device:CPU:0"
   attr {
     key: "T"
@@ -26519,9 +26823,9 @@ node {
   }
 }
 node {
-  name: "softmax_linear/biases/ExponentialMovingAverage/cond_10/read_softmax_linear/biases/ExponentialMovingAverage_0"
+  name: "softmax_linear/biases/ExponentialMovingAverage/cond_11/read_softmax_linear/biases/ExponentialMovingAverage_0"
   op: "Identity"
-  input: "softmax_linear/biases/ExponentialMovingAverage/cond_10/read/Switch_softmax_linear/biases/ExponentialMovingAverage_0:1"
+  input: "softmax_linear/biases/ExponentialMovingAverage/cond_11/read/Switch_softmax_linear/biases/ExponentialMovingAverage_0:1"
   device: "/device:CPU:0"
   attr {
     key: "T"
@@ -26549,10 +26853,10 @@ node {
   }
 }
 node {
-  name: "softmax_linear/biases/ExponentialMovingAverage/cond_10/Merge_softmax_linear/biases/ExponentialMovingAverage_0"
+  name: "softmax_linear/biases/ExponentialMovingAverage/cond_11/Merge_softmax_linear/biases/ExponentialMovingAverage_0"
   op: "Merge"
-  input: "cond_10/Switch_1"
-  input: "softmax_linear/biases/ExponentialMovingAverage/cond_10/read_softmax_linear/biases/ExponentialMovingAverage_0"
+  input: "cond_11/Switch_1"
+  input: "softmax_linear/biases/ExponentialMovingAverage/cond_11/read_softmax_linear/biases/ExponentialMovingAverage_0"
   device: "/device:CPU:0"
   attr {
     key: "N"
@@ -26591,7 +26895,7 @@ node {
   name: "softmax_linear/biases/ExponentialMovingAverage/Assign"
   op: "Assign"
   input: "softmax_linear/biases/ExponentialMovingAverage"
-  input: "softmax_linear/biases/ExponentialMovingAverage/cond_10/Merge_softmax_linear/biases/ExponentialMovingAverage_0"
+  input: "softmax_linear/biases/ExponentialMovingAverage/cond_11/Merge_softmax_linear/biases/ExponentialMovingAverage_0"
   device: "/device:CPU:0"
   attr {
     key: "T"
@@ -28735,7 +29039,7 @@ node {
   }
 }
 node {
-  name: "cond_11/Switch"
+  name: "cond_12/Switch"
   op: "Switch"
   input: "IsVariableInitialized_10"
   input: "IsVariableInitialized_10"
@@ -28758,9 +29062,9 @@ node {
   }
 }
 node {
-  name: "cond_11/switch_t"
+  name: "cond_12/switch_t"
   op: "Identity"
-  input: "cond_11/Switch:1"
+  input: "cond_12/Switch:1"
   attr {
     key: "T"
     value {
@@ -28778,9 +29082,9 @@ node {
   }
 }
 node {
-  name: "cond_11/switch_f"
+  name: "cond_12/switch_f"
   op: "Identity"
-  input: "cond_11/Switch"
+  input: "cond_12/Switch"
   attr {
     key: "T"
     value {
@@ -28798,7 +29102,7 @@ node {
   }
 }
 node {
-  name: "cond_11/pred_id"
+  name: "cond_12/pred_id"
   op: "Identity"
   input: "IsVariableInitialized_10"
   attr {
@@ -28818,10 +29122,10 @@ node {
   }
 }
 node {
-  name: "cond_11/read/Switch"
+  name: "cond_12/read/Switch"
   op: "RefSwitch"
   input: "global_step"
-  input: "cond_11/pred_id"
+  input: "cond_12/pred_id"
   attr {
     key: "T"
     value {
@@ -28849,9 +29153,9 @@ node {
   }
 }
 node {
-  name: "cond_11/read"
+  name: "cond_12/read"
   op: "Identity"
-  input: "cond_11/read/Switch:1"
+  input: "cond_12/read/Switch:1"
   attr {
     key: "T"
     value {
@@ -28869,10 +29173,10 @@ node {
   }
 }
 node {
-  name: "cond_11/Switch_1"
+  name: "cond_12/Switch_1"
   op: "Switch"
   input: "global_step/Initializer/zeros"
-  input: "cond_11/pred_id"
+  input: "cond_12/pred_id"
   attr {
     key: "T"
     value {
@@ -28900,10 +29204,10 @@ node {
   }
 }
 node {
-  name: "cond_11/Merge"
+  name: "cond_12/Merge"
   op: "Merge"
-  input: "cond_11/Switch_1"
-  input: "cond_11/read"
+  input: "cond_12/Switch_1"
+  input: "cond_12/read"
   attr {
     key: "N"
     value {
@@ -28961,7 +29265,7 @@ node {
 node {
   name: "add"
   op: "Add"
-  input: "cond_11/Merge"
+  input: "cond_12/Merge"
   input: "add/y"
   attr {
     key: "T"
@@ -32613,7 +32917,7 @@ node {
         dtype: DT_STRING
         tensor_shape {
         }
-        string_val: "_temp_07d5bafa8dc14bb799a9b9264aa72e25/part"
+        string_val: "_temp_4e576ffc41d64163a430c481ada42b6c/part"
       }
     }
   }

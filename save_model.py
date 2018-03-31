@@ -44,6 +44,6 @@ def freeze_graph(model_dir, output_node_names):
 
 def main():
 
-	freeze_graph('cnn_files', 'softmax_linear/softmax_linear,images')
+	freeze_graph('cnn_files', 'softmax_linear/softmax_linear,shuffle_batch')
 if __name__ == "__main__":
 	main()

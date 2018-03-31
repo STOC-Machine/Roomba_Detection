@@ -9,6 +9,8 @@ import tensorflow as tf
 
 import roomba
 
+import numpy as np
+
 FLAGS = tf.app.flags.FLAGS
 
 tf.app.flags.DEFINE_string('train_dir', r'cnn_files',
@@ -35,6 +37,9 @@ def train():
 
 		# Build a Graph that computs the logits predicitons from the
 		# inference model
+		is_training = tf.placeholder(dtype=bool, shape=(), name='is_training')
+		imgs = tf.placeholder(tf.float32, (1,32,32,3), name='imgs')
+		images = tf.cond(is_training, lambda:images, lambda:imgs)
 		logits = roomba.inferences(images)
 
 		# Calculate loss.
@@ -68,7 +73,7 @@ def train():
 								  'sec/batch)')
 					print(format_str % (datetime.now(), self._step, loss_value,
 										examples_per_sec, sec_per_batch))
-
+		tmp_img = np.ndarray(shape=(1,32,32,3), dtype=float)
 		with tf.train.MonitoredTrainingSession(
 				checkpoint_dir=FLAGS.train_dir,
 				hooks=[tf.train.StopAtStepHook(last_step=FLAGS.max_steps),
@@ -77,7 +82,7 @@ def train():
 				config=tf.ConfigProto(
 					log_device_placement=FLAGS.log_device_placement)) as mon_sess:
 			while not mon_sess.should_stop():
-				mon_sess.run(train_op)
+				mon_sess.run(train_op, feed_dict={is_training: True, imgs: tmp_img})
 
 
 def main(argv=None):  # pylint: disable=ununsed-argument
