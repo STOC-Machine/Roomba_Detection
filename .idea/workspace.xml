@@ -2,34 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="01fc5cd4-4384-4402-8c30-4fe2ff8d5158" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/checkpoint" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/events.out.tfevents.1521393170.MALCOLM-PC" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/events.out.tfevents.1521393225.MALCOLM-PC" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/graph.pbtxt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-10000.data-00000-of-00002" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-10000.data-00001-of-00002" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-10000.index" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-10000.meta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9052.data-00000-of-00002" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9052.data-00001-of-00002" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9052.index" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9052.meta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9339.data-00000-of-00002" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9339.data-00001-of-00002" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9339.index" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9339.meta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9626.data-00000-of-00002" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9626.data-00001-of-00002" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9626.index" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9626.meta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9913.data-00000-of-00002" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9913.data-00001-of-00002" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9913.index" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cnn_files/model.ckpt-9913.meta" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/find_roomba.py" afterPath="$PROJECT_DIR$/find_roomba.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/roomba.py" afterPath="$PROJECT_DIR$/roomba.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/roomba_train.py" afterPath="$PROJECT_DIR$/roomba_train.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -45,16 +18,16 @@
     <SUITE FILE_PATH="coverage/Roomba_Detection$roomba_eval.coverage" NAME="roomba_eval Coverage Results" MODIFIED="1522513100482" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Roomba_Detection$view_graph.coverage" NAME="view_graph Coverage Results" MODIFIED="1520531005261" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Roomba_Detection$classify_image.coverage" NAME="classify_image Coverage Results" MODIFIED="1519847778486" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../models/tutorials/image/imagenet" />
-    <SUITE FILE_PATH="coverage/Roomba_Detection$roomba_train.coverage" NAME="roomba_train Coverage Results" MODIFIED="1522523403939" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Roomba_Detection$roomba_train.coverage" NAME="roomba_train Coverage Results" MODIFIED="1522524309078" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Roomba_Detection$save_model.coverage" NAME="save_model Coverage Results" MODIFIED="1520607888010" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="find_roomba.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="find_roomba.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/find_roomba.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="55">
-              <caret line="13" column="45" lean-forward="false" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
+            <state relative-caret-position="105">
+              <caret line="9" column="50" lean-forward="false" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="50" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -106,10 +79,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="roomba.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="roomba.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/roomba.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
+            <state relative-caret-position="100">
               <caret line="184" column="101" lean-forward="false" selection-start-line="184" selection-start-column="101" selection-end-line="184" selection-end-column="101" />
               <folding />
             </state>
@@ -170,8 +143,8 @@
         <option value="$USER_HOME$/Desktop/Classes/neural_networks/assignment1/cs231n/data_utils.py" />
         <option value="$USER_HOME$/Desktop/Classes/neural_networks/assignment1/cs231n/classifiers/k_nearest_neighbor.py" />
         <option value="$PROJECT_DIR$/roomba_train.py" />
-        <option value="$PROJECT_DIR$/find_roomba.py" />
         <option value="$PROJECT_DIR$/roomba.py" />
+        <option value="$PROJECT_DIR$/find_roomba.py" />
       </list>
     </option>
   </component>
@@ -334,8 +307,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.find_roomba" />
-        <item index="1" class="java.lang.String" itemvalue="Python.roomba_train" />
+        <item index="0" class="java.lang.String" itemvalue="Python.roomba_train" />
+        <item index="1" class="java.lang.String" itemvalue="Python.find_roomba" />
         <item index="2" class="java.lang.String" itemvalue="Python.roomba_cam" />
         <item index="3" class="java.lang.String" itemvalue="Python.roomba_eval" />
         <item index="4" class="java.lang.String" itemvalue="Python.load_model" />
@@ -689,14 +662,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view_graph.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="23" lean-forward="false" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/roomba_cam.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
@@ -725,21 +690,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/find_roomba.py">
+    <entry file="file://$PROJECT_DIR$/roomba.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="55">
-          <caret line="13" column="45" lean-forward="false" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="100">
+          <caret line="184" column="101" lean-forward="false" selection-start-line="184" selection-start-column="101" selection-end-line="184" selection-end-column="101" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/roomba.py">
+    <entry file="file://$PROJECT_DIR$/view_graph.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="184" column="101" lean-forward="false" selection-start-line="184" selection-start-column="101" selection-end-line="184" selection-end-column="101" />
+        <state relative-caret-position="0">
+          <caret line="0" column="23" lean-forward="false" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/find_roomba.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="9" column="50" lean-forward="false" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="50" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

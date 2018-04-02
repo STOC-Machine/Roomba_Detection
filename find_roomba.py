@@ -6,8 +6,8 @@ sess = tf.Session('', tf.Graph())
 cam = cv2.VideoCapture(0)
 with sess.graph.as_default():
 	# Read meta graph and checkpoint to restore session
-	saver = tf.train.import_meta_graph("cnn_files\model.ckpt-1.meta")
-	saver.restore(sess,"cnn_files\model.ckpt-1")
+	saver = tf.train.import_meta_graph("cnn_files\model.ckpt-10000.meta")
+	saver.restore(sess,"cnn_files\model.ckpt-10000")
 	while True:
 		_, frame = cam.read()
 		image = cv2.resize(frame, (32, 32), interpolation=cv2.INTER_CUBIC)
