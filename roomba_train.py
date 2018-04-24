@@ -16,7 +16,7 @@ FLAGS = tf.app.flags.FLAGS
 tf.app.flags.DEFINE_string('train_dir', r'cnn_files',
 						   """Directoy where to write the logs """
 						   """and checkpoint.""")
-tf.app.flags.DEFINE_integer('max_steps', 10000,
+tf.app.flags.DEFINE_integer('max_steps', 5000,
 							"""Number of batches to run""")
 tf.app.flags.DEFINE_boolean('log_device_placement', False,
 							"""Whether to log device placement""")
@@ -37,11 +37,11 @@ def train():
 
 		# Build a Graph that computs the logits predicitons from the
 		# inference model
-		is_training = tf.placeholder(dtype=bool, shape=(), name='is_training')
-		imgs = tf.placeholder(tf.float32, (1,32,32,3), name='imgs')
-		images = tf.cond(is_training, lambda:images, lambda:imgs)
-		batch_size = tf.cond(is_training, lambda:128, lambda: 1)
-		logits = roomba.inferences(images,batch_size)
+		#is_training = tf.placeholder(dtype=bool, shape=(), name='is_training')
+		#imgs = tf.placeholder(tf.float32, (1,32,32,3), name='imgs')
+		#images = tf.cond(is_training, lambda:images, lambda:imgs)
+		#batch_size = tf.cond(is_training, lambda:128, lambda: 1)
+		logits = roomba.inferences(images)
 
 		# Calculate loss.
 		loss = roomba.loss(logits, labels)
@@ -74,7 +74,6 @@ def train():
 								  'sec/batch)')
 					print(format_str % (datetime.now(), self._step, loss_value,
 										examples_per_sec, sec_per_batch))
-		tmp_img = np.ndarray(shape=(1,32,32,3), dtype=float)
 		with tf.train.MonitoredTrainingSession(
 				checkpoint_dir=FLAGS.train_dir,
 				hooks=[tf.train.StopAtStepHook(last_step=FLAGS.max_steps),
@@ -83,7 +82,7 @@ def train():
 				config=tf.ConfigProto(
 					log_device_placement=FLAGS.log_device_placement)) as mon_sess:
 			while not mon_sess.should_stop():
-				mon_sess.run(train_op, feed_dict={is_training: True, imgs: tmp_img})
+				mon_sess.run(train_op)
 
 
 def main(argv=None):  # pylint: disable=ununsed-argument

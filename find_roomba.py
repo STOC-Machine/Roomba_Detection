@@ -1,17 +1,18 @@
 import cv2
 import tensorflow as tf
 import numpy as np
-
 sess = tf.Session('', tf.Graph())
 cam = cv2.VideoCapture(0)
 with sess.graph.as_default():
 	# Read meta graph and checkpoint to restore session
-	saver = tf.train.import_meta_graph("cnn_files\model.ckpt-10000.meta")
-	saver.restore(sess,"cnn_files\model.ckpt-10000")
+	saver = tf.train.import_meta_graph("cnn_files\model.ckpt-10012.meta")
+	saver.restore(sess,"cnn_files\model.ckpt-10012")
 	while True:
 		_, frame = cam.read()
 		image = cv2.resize(frame, (32, 32), interpolation=cv2.INTER_CUBIC)
-		image = np.expand_dims(image, axis=0)
+		image = tf.expand_dims(image, axis=0)
+		image = tf.cast(image, tf.float32, name="image")
+		image = sess.run(image)
 		# Start the queue runners. If they are not started the program will hang
 		coord = tf.train.Coordinator()
 		threads =[]
@@ -25,7 +26,5 @@ with sess.graph.as_default():
 		# fed with the image that was read above.
 		logits = sess.run('softmax_linear/softmax_linear:0',
 						  feed_dict={'is_training:0': False, 'imgs:0':image})
-
 		#Print classification results
 		print(logits)
-
